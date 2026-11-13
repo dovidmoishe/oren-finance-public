@@ -1,0 +1,11 @@
+{
+  "title": "Oren Docs",
+  "pages": [
+    "index",
+    "tools",
+    "mcp",
+    "authentication",
+    "sdk",
+    "api"
+  ]
+}

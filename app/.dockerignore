@@ -1,0 +1,10 @@
+node_modules
+.pnpm-cache
+.next
+coverage
+.env
+.env.*
+*.log
+tests
+README.md
+public/videos

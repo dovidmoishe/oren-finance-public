@@ -1,0 +1,125 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789236458716,
+      "tag": "0000_init",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789286400000,
+      "tag": "0001_cached_stocks",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789344000000,
+      "tag": "0002_trader_profiles",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1789430400000,
+      "tag": "0003_limit_orders",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1790010000000,
+      "tag": "0004_volume_analytics",
+      "breakpoints": true
+    },
+    {
+      "version": "7",
+      "when": 1793208000000,
+      "breakpoints": true,
+      "tag": "0005_trade_approvals",
+      "idx": 5
+    },
+    {
+      "version": "7",
+      "when": 1793462400000,
+      "breakpoints": true,
+      "tag": "0006_mcp_oauth",
+      "idx": 6
+    },
+    {
+      "version": "7",
+      "when": 1793466000000,
+      "breakpoints": true,
+      "tag": "0007_mcp_connections",
+      "idx": 7
+    },
+    {
+      "version": "7",
+      "when": 1793469600000,
+      "breakpoints": true,
+      "tag": "0008_mcp_trade_intents",
+      "idx": 8
+    },
+    {
+      "version": "7",
+      "when": 1793556000000,
+      "breakpoints": true,
+      "tag": "0009_mcp_trade_sides",
+      "idx": 9
+    },
+    {
+      "version": "7",
+      "when": 1793559600000,
+      "breakpoints": true,
+      "tag": "0010_mcp_delegated_trades",
+      "idx": 10
+    },
+    {
+      "version": "7",
+      "when": 1793577600000,
+      "breakpoints": true,
+      "tag": "0011_mcp_delegated_execution",
+      "idx": 11
+    },
+    {
+      "version": "7",
+      "when": 1793581200000,
+      "breakpoints": true,
+      "tag": "0012_saved_research",
+      "idx": 12
+    },
+    {
+      "version": "7",
+      "when": 1793584800000,
+      "breakpoints": true,
+      "tag": "0013_feedback_tickets",
+      "idx": 13
+    },
+    {
+      "version": "7",
+      "when": 1793750400000,
+      "breakpoints": true,
+      "tag": "0014_independent_trade_authorization",
+      "idx": 14
+    },
+    {
+      "version": "7",
+      "when": 1794441600000,
+      "breakpoints": true,
+      "tag": "0015_mcp_grant_expiry",
+      "idx": 15
+    },
+    {
+      "version": "7",
+      "when": 1794528000000,
+      "breakpoints": true,
+      "tag": "0016_mcp_custom_spend_limits",
+      "idx": 16
+    }
+  ]
+}

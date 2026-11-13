@@ -1,0 +1,164 @@
+.changelog-page {
+  @apply relative min-h-screen overflow-x-clip [background:#f9f9f7] text-[#111110];
+}
+
+.changelog-nav-links {
+  @apply flex gap-[28px] items-center text-[14px] text-[#676762];
+}
+
+.changelog-nav-links [aria-current] {
+  @apply text-[#111110];
+}
+
+.changelog-intro {
+  @apply flex items-baseline justify-between gap-[24px] [padding:66px_0_32px] [border-bottom:1px_solid_#e3e0d9];
+}
+
+.changelog-intro h1 {
+  @apply text-[clamp(36px,_4vw,_48px)] font-medium leading-[1.1] tracking-[-.055em];
+}
+
+.changelog-intro p {
+  @apply text-[14px] leading-[1.7] text-[#756e65];
+}
+
+.changelog-release-day + .changelog-release-day, .changelog-entry + .changelog-entry {
+  @apply [border-top:1px_solid_#e3e0d9] pt-[42px];
+}
+
+.changelog-entry {
+  @apply min-w-0 pb-[44px];
+}
+
+.changelog-entry-meta {
+  @apply flex items-center flex-wrap gap-[18px] text-[12px] leading-[1.6] text-[#756e65] mb-[12px];
+}
+
+.changelog-entry-meta > span {
+  @apply text-[#8a6521];
+}
+
+.changelog-title {
+  @apply max-w-[830px] text-[clamp(27px,_3vw,_36px)] leading-[1.2] font-medium tracking-[-.045em] text-balance;
+}
+
+.changelog-title a:hover {
+  @apply text-[#756181];
+}
+
+.changelog-story-with-media {
+  @apply grid grid-cols-[minmax(0,_1.35fr)_minmax(0,_1fr)] [align-items:start] gap-[44px];
+}
+
+.changelog-story, .changelog-media {
+  @apply min-w-0;
+}
+
+.changelog-story {
+  @apply max-w-[720px];
+}
+
+.changelog-media {
+  @apply grid gap-[24px];
+}
+
+.changelog-changes {
+  @apply mt-[26px];
+}
+
+.changelog-changes ul {
+  @apply grid gap-[22px] p-0 list-none;
+}
+
+.changelog-changes h2, .changelog-changes h3 {
+  @apply text-[14px] leading-[1.55] font-medium tracking-[-.015em] mb-[5px];
+}
+
+.changelog-changes p {
+  @apply text-[13px] leading-[1.8] text-[#756e65];
+}
+
+.changelog-film {
+  @apply m-0;
+}
+
+.changelog-film video {
+  @apply block w-full h-auto [border:1px_solid_#e6e2db] rounded-[12px] [background:#fff];
+}
+
+.changelog-film figcaption {
+  @apply max-w-[580px] mt-[14px] text-[12px] leading-[1.8] text-[#756e65];
+}
+
+.changelog-screenshot {
+  @apply m-0;
+}
+
+.changelog-screenshot img {
+  @apply block w-full h-auto rounded-[12px] [border:1px_solid_#e6e2db];
+}
+
+.changelog-feature-link, .changelog-permalink {
+  @apply inline-flex items-center gap-[10px] min-h-[44px] text-[12px];
+}
+
+.changelog-feature-link {
+  @apply text-[#6d527e];
+}
+
+.changelog-permalink {
+  @apply text-[#756e65];
+}
+
+.changelog-feature-link:hover, .changelog-permalink:hover {
+  @apply underline underline-offset-[4px];
+}
+
+.changelog-page a:focus-visible, .changelog-page video:focus-visible {
+  @apply [outline:2px_solid_#88709f] outline-offset-[5px] rounded-[4px];
+}
+
+@media (max-width: 1023px) {
+  .changelog-nav-links {
+    @apply hidden;
+  }
+  .changelog-story-with-media {
+    @apply gap-[28px] grid-cols-[repeat(2,_minmax(0,_1fr))];
+  }
+}
+
+@media (max-width: 767px) {
+  .changelog-intro {
+    @apply block [padding:38px_0_24px];
+  }
+  .changelog-intro h1 {
+    @apply text-[40px];
+  }
+  .changelog-intro p {
+    @apply mt-[12px] text-[13px];
+  }
+  .changelog-entry-meta {
+    @apply text-[11px] mb-[10px];
+  }
+  .changelog-title {
+    @apply text-[28px];
+  }
+  .changelog-story-with-media {
+    @apply grid-cols-[minmax(0,_1fr)] gap-[26px];
+  }
+  .changelog-changes {
+    @apply mt-[24px];
+  }
+  .changelog-changes ul {
+    @apply gap-[20px];
+  }
+  .changelog-film video, .changelog-screenshot img {
+    @apply rounded-[10px];
+  }
+  .changelog-film figcaption {
+    @apply text-[11px] mt-[12px];
+  }
+  .changelog-entry {
+    @apply pb-[32px];
+  }
+}

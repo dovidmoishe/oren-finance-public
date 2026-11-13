@@ -1,0 +1,132 @@
+---
+title: Tool reference
+description: Inputs, permissions and behavior for the Oren MCP tools.
+---
+
+The MCP implementation registers **10 distinct tool names**. A client discovers only those allowed by its approved scopes and the server's enabled features. Successful results are returned as text containing JSON; failures can contain plain text and set MCP's `isError` flag.
+
+## At a glance
+
+- **Read:** `get_portfolio`, `search_stocks`, `get_stock`, `get_stock_research`.
+- **Prepare and review:** `prepare_trade`, `review_trade`, `trade_status`.
+- **Compatibility:** `prepare_buy`, `execute_buy`.
+- **Restricted execution:** `execute_trade`.
+
+A read-only connection exposes four tools. Read plus prepare, without execute scope, exposes nine. With read, prepare and execute scopes, `prepare_buy` and `execute_buy` are omitted; `execute_trade` appears only when the signing gate is configured. A missing tool is not necessarily a connection error.
+
+## Read tools
+
+All three require `oren.read` and do not sign or broadcast transactions.
+
+### `get_portfolio`
+
+Reads the portfolio of the wallet approved during connection. Takes an empty object, `{}`. There is no wallet parameter.
+
+**Returns:** the portfolio service result for that approved wallet. It does not accept an arbitrary wallet override.
+
+```json title="Arguments"
+{}
+```
+
+### `search_stocks`
+
+Searches tokenized stocks by ticker or company name.
+
+- `query`: a trimmed string, 1–80 characters.
+
+```json
+{ "query": "Nvidia" }
+```
+
+**Returns:** matching canonical stock search results. Use a returned asset ID in `get_stock` or `prepare_trade`.
+
+### `get_stock`
+
+Fetches canonical stock detail using an asset ID from search.
+
+- `assetId`: a trimmed string, 1–80 characters.
+
+Use the returned canonical asset ID. A ticker or issuer-specific mint is not necessarily that ID.
+
+**Returns:** the market service's canonical stock detail. The tool does not sign, quote or submit a trade.
+
+### `get_stock_research`
+
+Reads the same research report the app desk uses, for one canonical asset ID.
+
+- `assetId`: a trimmed string, 1–80 characters, using letters, numbers, and `.`, `_`, `:`, or `-`.
+
+Portfolio context is the wallet approved on this connection. The tool does not accept a user id or wallet override. SEC company facts are included only for a verified issuer, with filing citations. Funds, foreign issuers, and unmapped tokens return an explicit coverage reason and no guessed figures. Writer opinions are omitted. The tool does not prepare, sign, or submit a trade.
+
+```json
+{ "assetId": "nvidia" }
+```
+
+**Returns:** the research report as JSON text. A company section can be unavailable while technical research, news, and portfolio context are still present.
+
+## Trade preparation tools
+
+These tools require `oren.trade.prepare`. A prepared intent is a request, not proof of execution.
+
+### `prepare_trade`
+
+Quotes and prepares a USDC stock buy or a stock sell.
+
+- `assetId`: canonical asset ID from stock search.
+- `side`: `buy` or `sell`.
+- `amountUsd`: required for buys; a number from `0.01` to `100000`. Omit for sells.
+- `amountShares`: required for sells; a positive number up to `1000000000`. Omit for buys.
+- `slippageBps`: integer from `1` to `50`, default `50`. Fifty basis points is 0.5%.
+
+The result includes `intentId`, `side`, `ticker`, the selected `stockMint`, raw input/output bounds, `slippageBps`, `expiresAt` and `mode`. Browser mode also includes `approvalUrl`. Intents currently expire after five minutes; an underlying quote can require refreshing sooner.
+
+Sell results can include `referenceValueUsd` and `quotedProceedsUsd`. A reference value is not a guaranteed execution price.
+
+### `prepare_buy`
+
+A compatibility tool that saves a buy request for browser review. Available to prepare-scoped connections without `oren.trade.execute`.
+
+- `assetId`: canonical asset ID.
+- `amountUsd`: a number from `0.01` to `100000`.
+- `slippageBps`: integer from `1` to `50`, default `50`.
+
+It does not sign or submit a trade.
+
+**Returns:** `intentId`, `ticker`, `amountUsd`, `slippageBps` and `expiresAt`. This compatibility request currently expires after **10 minutes**, unlike the 5-minute intent produced by `prepare_trade`. Use `review_trade` to get its approval URL.
+
+### `review_trade`
+
+Returns the Oren browser review link for an intent owned by the connection.
+
+- `intentId`: UUID returned by preparation.
+
+**Returns:** `intentId`, `status: browser_approval_required` and `approvalUrl`. The intent must still be prepared, unexpired, in browser mode and owned by the same connection, user and wallet. Otherwise the tool returns `Intent expired or unavailable.`
+
+### `execute_buy`
+
+A compatibility alias that opens browser review; despite its name, it does not sign or broadcast a trade. Available to prepare-scoped connections without execute permission. Takes `intentId` as a UUID. Prefer `review_trade` for new integrations.
+
+### `trade_status`
+
+Reads the state of an intent and its browser approval or delegated execution, where present.
+
+- `intentId`: UUID returned by preparation.
+
+A result may report `browser_approval_required`, `expired`, or a later approval/execution state. A pending or unavailable result is not evidence of failure or success. Recheck status instead of creating a duplicate trade, and use a returned chain signature to investigate broadcast transactions.
+
+**Returns:** `intentId`, `status`, optional `signature`, and `observedAt`. An unknown or differently owned intent returns `Intent unavailable.`
+
+## Restricted execution tool
+
+### `execute_trade`
+
+Available only with `oren.trade.prepare`, `oren.trade.execute` and an enabled signing gate. Also requires an active wallet delegation and a prepared intent in delegated mode. This capability remains restricted during rollout.
+
+- `intentId`: UUID from `prepare_trade`.
+- `idempotencyKey`: 16–64 characters using letters, numbers, underscores or hyphens.
+
+Keep the same key when retrying the same execution. The server binds the intent to the connection, user and wallet, checks the delegation limits, and enforces authorization before signing. The agent does not supply an arbitrary wallet or transaction for signing.
+
+If browser approval is required, follow that path. See [Trade approvals](/docs/mcp/trades).
+
+**Returns:** `intentId`, execution `status` and an optional chain `signature`, or a browser approval result. Eligible pre-execution rejections such as an inactive grant, budget limit or unsupported route can fall back to browser review. An uncertain failure can return `pending_or_unavailable` with `isError: true`; check status before creating a replacement intent.

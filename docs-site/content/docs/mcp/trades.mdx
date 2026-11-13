@@ -1,0 +1,30 @@
+---
+title: Trade approvals
+description: Understand the steps between asking for a trade and executing one.
+---
+
+Oren separates **proposal, preparation, authorization, signing and broadcast**. A chat message, a connection approval or a prepared intent does not by itself mean a transaction has been sent.
+
+## Browser review
+
+1. The agent finds the stock and uses its canonical asset ID.
+2. `prepare_trade` prepares a buy or sell and returns an intent.
+3. When `mode` is `browser`, the user opens the returned `approvalUrl` on Oren.
+4. The user reviews the selected asset, side, amount and quote, then signs the exact transaction in the browser.
+5. The agent can use `trade_status` to check the intent's state.
+
+If a quote has expired or its reviewed terms change, obtain and review a fresh quote. Never interpret a prepared intent as a completed trade.
+
+## Bounded delegated execution
+
+Delegated trading remains restricted during rollout. It requires both explicit OAuth execute consent and a separate owner-authorized wallet grant. The server must also have delegated execution enabled for the applicable trade side.
+
+A grant constrains the wallet, assets, routes, spending, slippage and expiry. Oren enforces the applicable limits immediately before signing. The agent may execute only an eligible prepared intent bound to the authenticated connection; it cannot submit an arbitrary transaction for signature.
+
+When an eligible intent returns `mode: delegated`, an authorized client may call `execute_trade`. Preserve the same idempotency key for retries of that intent. If the result is pending or unavailable, check status before attempting another trade.
+
+## Stay in control
+
+Manage connections and any active grants in [Agent connections](https://oren.finance/settings/mcp). You can revoke access. Revocation prevents future use; it does not reverse a transaction already broadcast to Solana.
+
+Read the [permission scopes](/docs/authentication) and [tool reference](/docs/mcp/tools) before requesting trade access.

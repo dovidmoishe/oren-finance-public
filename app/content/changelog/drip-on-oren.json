@@ -1,0 +1,31 @@
+{
+  "slug": "drip-on-oren",
+  "date": "2026-11-02",
+  "sequence": 1,
+  "status": "published",
+  "title": "Drip is live on Oren",
+  "summary": "Ask “what are people saying about $NVDA?” and get bullish and bearish takes from Substack, X and podcasts.",
+  "sections": [
+    {
+      "heading": "Added",
+      "items": [
+        {
+          "title": "See who said it",
+          "description": "Names and source links let you check the takes for yourself."
+        },
+        {
+          "title": "Ask a follow-up",
+          "description": "Those takes also inform questions like “should I buy?” alongside Oren’s own analysis."
+        }
+      ]
+    }
+  ],
+  "video": {
+    "src": "/videos/oren-drip-continuous-v4.mp4",
+    "poster": "/videos/oren-drip-poster-v4.jpg",
+    "label": "Drip research in Oren, a 17-second product film",
+    "caption": "Drip research in Oren. Demo uses sample topics.",
+    "width": 1920,
+    "height": 1080
+  }
+}

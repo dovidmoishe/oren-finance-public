@@ -1,0 +1,26 @@
+---
+title: Public tools
+description: The tools available through Oren's public MCP server.
+---
+
+Oren's MCP server supports the following tools. Availability depends on your connection's approved permissions and enabled server features.
+
+## Tool list
+
+1. [`get_portfolio`](/docs/mcp/tools#get_portfolio) — read the approved wallet's portfolio.
+2. [`search_stocks`](/docs/mcp/tools#search_stocks) — find tokenized stocks by ticker or company name.
+3. [`get_stock`](/docs/mcp/tools#get_stock) — get canonical stock details by asset ID.
+4. [`get_stock_research`](/docs/mcp/tools#get_stock_research) — read the cited research report, including verified SEC company facts.
+5. [`prepare_trade`](/docs/mcp/tools#prepare_trade) — quote and prepare a stock buy or sell.
+6. [`prepare_buy`](/docs/mcp/tools#prepare_buy) — compatibility path that saves a buy request for browser review.
+7. [`review_trade`](/docs/mcp/tools#review_trade) — get the browser approval link for a prepared intent.
+8. [`execute_buy`](/docs/mcp/tools#execute_buy) — compatibility alias for browser review; it does not execute a transaction.
+9. [`trade_status`](/docs/mcp/tools#trade_status) — inspect an intent's approval or execution state.
+10. [`execute_trade`](/docs/mcp/tools#execute_trade) — request restricted delegated execution under an active bounded grant.
+
+Read-only connections normally expose four tools. A connection with read and prepare scopes, without execute scope, exposes nine. With read, prepare and execute scopes, the compatibility tools disappear; `execute_trade` additionally requires the signing gate. Do not assume all ten names appear in a single connection.
+
+
+## Reference
+
+See the [MCP tool reference](/docs/mcp/tools) for each tool's inputs, results and authorization requirements. Start with the [quickstart](/docs/mcp/quickstart) to connect your client.

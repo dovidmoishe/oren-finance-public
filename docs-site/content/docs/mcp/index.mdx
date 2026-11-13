@@ -1,0 +1,28 @@
+---
+title: MCP server
+description: Bring Oren into the AI tools you already use.
+---
+
+Model Context Protocol (MCP) gives an AI client a standard way to discover and call tools. Oren exposes a remote MCP server over Streamable HTTP.
+
+```text title="Server URL"
+https://api.oren.finance/mcp
+```
+
+## What you can do
+
+- Read the portfolio for the wallet you approve during connection.
+- Search tokenized stocks by company name or ticker.
+- Get canonical stock details using an asset ID.
+- Prepare stock buys and sells when the connection has trade preparation permission.
+- Follow a prepared trade through review and status checks.
+
+Tools are exposed according to your connection's permissions and the server's enabled features. Connecting does not automatically authorize trading. Delegated execution is restricted and is not a generally available capability.
+
+## Supported clients
+
+Choose a guide for [Claude](/docs/mcp/claude), [Cursor](/docs/mcp/cursor) or [Codex](/docs/mcp/codex). Client registration is limited to supported callback destinations; arbitrary custom OAuth clients are not currently supported.
+
+## Your first connection
+
+Follow the [quickstart](/docs/mcp/quickstart). You do not need to create an Oren API key or paste a wallet private key into your agent.

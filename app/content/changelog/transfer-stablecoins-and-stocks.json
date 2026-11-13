@@ -1,0 +1,50 @@
+{
+  "slug": "transfer-stablecoins-and-stocks",
+  "date": "2026-11-03",
+  "sequence": 1,
+  "status": "published",
+  "title": "Transfer stablecoins and stocks",
+  "summary": "Transfer USDC, SOL, and supported stock tokens to another Solana wallet. Review the recipient, amount, and fees before you approve. Local preview shown with sample balances.",
+  "sections": [
+    {
+      "heading": "Added",
+      "items": [
+        {
+          "title": "Transfer without leaving your page",
+          "description": "Open Transfer from your account menu, choose USDC, SOL, or a stock token, and enter the receiving Solana wallet."
+        },
+        {
+          "title": "Your stock tokens can move too",
+          "description": "Send unlocked stock tokens you hold, including fractional shares. Oren keeps the exact token variant and handles xStocks share adjustments."
+        },
+        {
+          "title": "Review the full transfer",
+          "description": "Check the receiving address, quantity, network fee, and any receiving token-account cost before approving."
+        }
+      ]
+    },
+    {
+      "heading": "Improved",
+      "items": [
+        {
+          "title": "Keep track of pending transfers",
+          "description": "Reopen a pending transfer to check its status. If submission needs another attempt, Oren retries the same signed transfer."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "label": "Open Oren",
+      "href": "/app"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/changelog/withdraw-stock-landscape.webp",
+      "alt": "Full landscape view of Oren with the transfer modal open, Tesla logos in the asset and amount controls, and empty receiving-wallet and amount fields. Local preview with sample balances.",
+      "width": 1440,
+      "height": 875
+    }
+  ]
+}

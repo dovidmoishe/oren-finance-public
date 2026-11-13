@@ -1,0 +1,36 @@
+---
+title: Cursor
+description: Configure the remote Oren MCP server in Cursor.
+---
+
+## Add the server
+
+Add this entry to your Cursor MCP configuration. Merge it with existing servers instead of replacing the file.
+
+```json title=".cursor/mcp.json"
+{
+  "mcpServers": {
+    "oren": {
+      "url": "https://api.oren.finance/mcp"
+    }
+  }
+}
+```
+
+Use a personal configuration if you want the connection across projects. A project configuration makes the server definition available to that project; your OAuth credentials should remain managed by the client.
+
+## Authenticate
+
+Open Cursor's MCP settings, enable Oren and follow its sign-in prompt. Complete Oren's browser sign-in, review the requested permissions and selected callback, then return to Cursor.
+
+When a local callback is selected, Oren requires an explicit local-application acknowledgement. Review the destination before approving it.
+
+## Try it
+
+```text
+Use Oren to find Tesla and show the stock details.
+```
+
+If tools do not appear, reconnect and check the [troubleshooting guide](/docs/mcp/troubleshooting). Trade tools depend on approved scopes and feature availability.
+
+For configuration details, see the [official Cursor MCP documentation](https://prod.cursor.com/docs/mcp).

@@ -1,0 +1,275 @@
+.foundations-section {
+  @apply relative max-w-[1280px] [margin:0_auto] [padding:0_48px_110px] scroll-mt-[96px];
+}
+
+.foundations-integrations {
+  @apply [padding:4px_0_64px];
+}
+
+.foundations-marquee {
+  @apply overflow-hidden [mask-image:linear-gradient(to_right,_transparent,_#000_6%,_#000_94%,_transparent)];
+}
+
+.foundations-track {
+  @apply flex w-max animate-[foundations-logos-drift_34s_linear_infinite];
+}
+
+.foundations-logo-group {
+  @apply flex items-center gap-[70px] [padding:12px_70px_12px_0] list-none;
+}
+
+.foundations-logo {
+  @apply flex items-center justify-center gap-[9px] min-h-[34px] whitespace-nowrap text-[22px] font-medium tracking-[-.04em] text-[#4c4a46];
+}
+
+.foundations-logo:focus-visible {
+  @apply [outline:2px_solid_#a38dbd] outline-offset-[8px] rounded-[2px];
+}
+
+.foundations-wordmark {
+  @apply w-[110px] h-[27px] object-contain;
+}
+
+.foundations-privy {
+  @apply w-[165px];
+}
+
+.foundations-openai {
+  @apply [font-family:Arial,_sans-serif] text-[24px] font-semibold tracking-[-.06em];
+}
+
+.foundations-statement {
+  @apply max-w-[960px] pt-[8px] text-[clamp(1.75rem,_3vw,_2.5rem)] leading-[1.18] font-medium tracking-[-.045em] text-pretty scroll-mt-[96px];
+}
+
+.foundations-statement > span {
+  @apply text-[#8a867e];
+}
+
+.foundations-feature {
+  @apply [padding:0_27px_6px] [border-left:1px_solid_#e4e0d8];
+}
+
+.foundations-feature:first-child {
+  @apply [border-left:0] pl-0;
+}
+
+.foundations-feature:last-child {
+  @apply pr-0;
+}
+
+.foundations-illustration {
+  --art-ink: #686057;
+  --art-stroke: #d6cec3;
+  --art-lavender: #e9e0ef;
+  --art-mist: #f6f2ed;
+  @apply h-[270px] grid place-items-center [margin:12px_-12px_21px];
+}
+
+.foundations-illustration > svg {
+  @apply w-full max-w-[340px] overflow-visible;
+}
+
+.foundations-agent-artwork {
+  @apply relative w-full max-w-[340px] aspect-[320_/_260];
+}
+
+.foundations-agent-artwork > svg {
+  @apply w-full h-full overflow-visible;
+}
+
+.foundations-agent-mascot {
+  @apply absolute left-[50%] top-[48.46%] w-[76px] h-[76px] [transform:translate(-50%,_-50%)];
+}
+
+.foundations-feature h3 {
+  @apply text-[15px] font-medium tracking-[-.02em] leading-[1.4];
+}
+
+.foundations-feature-copy {
+  @apply mt-[10px] max-w-[290px] text-[13px] leading-[1.7] text-[#858076] text-pretty;
+}
+
+.foundations-radar-sweep {
+  @apply [transform-origin:160px_125px] animate-[foundations-radar-sweep_20s_linear_infinite];
+}
+
+.foundations-signal-card {
+  @apply animate-[foundations-signal-float_6s_ease-in-out_infinite] [filter:drop-shadow(0_5px_8px_rgb(66_45_75_/_.045))];
+}
+
+.foundations-orbit-stock {
+  @apply animate-[foundations-stock-float_7s_ease-in-out_infinite] [animation-delay:calc(var(--index)_*_-1800ms)];
+}
+
+.foundations-thought-route {
+  @apply animate-[foundations-thought-flow_8s_linear_infinite] [animation-delay:calc(var(--index)_*_-1400ms)];
+}
+
+.foundations-thought-node {
+  @apply animate-[foundations-stock-float_7s_ease-in-out_infinite] [animation-delay:calc(var(--index)_*_-1100ms)] [filter:drop-shadow(0_4px_7px_rgb(66_45_75_/_.035))];
+}
+
+.foundations-agent-pulse {
+  @apply [transform-origin:160px_126px] animate-[foundations-agent-pulse_5s_ease-in-out_infinite];
+}
+
+.foundations-balance-beam {
+  @apply [transform-origin:160px_71px] animate-[foundations-balance-rock_8s_ease-in-out_infinite];
+}
+
+.foundations-animated {
+  @apply [animation-play-state:paused];
+}
+
+.foundations-section[data-animate="true"] .foundations-animated {
+  @apply [animation-play-state:running];
+}
+
+.foundations-section:focus-within .foundations-animated, .foundations-marquee:hover .foundations-track {
+  @apply [animation-play-state:paused];
+}
+
+.foundations-section[data-animate="false"] .foundations-agent-mascot .oren-logo__float {
+  @apply [animation-play-state:paused];
+}
+
+@keyframes foundations-logos-drift {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes foundations-radar-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes foundations-signal-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes foundations-stock-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes foundations-thought-flow {
+  to {
+    stroke-dashoffset: -54;
+  }
+}
+
+@keyframes foundations-agent-pulse {
+  0%, 100% {
+    opacity: .3;
+    transform: scale(.94);
+  }
+  50% {
+    opacity: .8;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes foundations-balance-rock {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@media (max-width: 1023px) {
+  .foundations-section {
+    @apply [padding:0_32px_80px];
+  }
+  .foundations-feature {
+    @apply [padding:0_20px];
+  }
+  .foundations-illustration {
+    @apply h-[215px];
+  }
+  .foundations-feature h3 {
+    @apply text-[14px];
+  }
+  .foundations-logo-group {
+    @apply gap-[50px] pr-[50px];
+  }
+}
+
+@media (max-width: 640px) {
+  .foundations-section {
+    @apply [padding:0_20px_65px];
+  }
+  .foundations-integrations {
+    @apply [padding:0_0_46px];
+  }
+  .foundations-logo-group {
+    @apply gap-[38px] pr-[38px];
+  }
+  .foundations-logo {
+    @apply text-[19px];
+  }
+  .foundations-openai {
+    @apply text-[21px];
+  }
+  .foundations-wordmark {
+    @apply w-[95px] h-[24px];
+  }
+  .foundations-privy {
+    @apply w-[145px];
+  }
+  .foundations-statement {
+    @apply text-[28px] leading-[1.2];
+  }
+  .foundations-feature, .foundations-feature:first-child, .foundations-feature:last-child {
+    @apply [padding:27px_0] [border-left:0] [border-top:1px_solid_#e4e0d8];
+  }
+  .foundations-feature:first-child {
+    @apply pt-0 [border-top:0];
+  }
+  .foundations-illustration {
+    @apply h-[245px] [margin:8px_0_16px];
+  }
+  .foundations-illustration > svg {
+    @apply max-w-[300px];
+  }
+  .foundations-agent-artwork {
+    @apply max-w-[300px];
+  }
+  .foundations-feature h3 {
+    @apply text-[16px];
+  }
+  .foundations-feature-copy {
+    @apply max-w-[320px] text-[14px];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foundations-animated {
+    animation: none !important;
+  }
+  .foundations-marquee {
+    @apply [mask-image:none];
+  }
+  .foundations-track {
+    @apply block w-auto;
+  }
+  .foundations-logo-group {
+    @apply flex-wrap justify-center [gap:26px_32px] pr-0;
+  }
+  .foundations-logo-group[aria-hidden] {
+    @apply hidden;
+  }
+}

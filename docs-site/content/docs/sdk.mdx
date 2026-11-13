@@ -1,0 +1,23 @@
+---
+title: Developer SDK
+description: The foundation for future Oren integrations.
+---
+
+## Coming later
+
+Oren's developer SDK is planned. There is no public package, supported SDK installation command or stable SDK method reference available in these docs yet.
+
+The SDK documentation will live here alongside the MCP guides when it is released, with installation, authentication, integration examples and a versioned reference.
+
+## What you can use today
+
+Connect a supported AI client through the [MCP server](/docs/mcp/quickstart). It provides a defined tool interface for portfolio reads, stock discovery and permitted trade preparation.
+
+## Integration principles
+
+- Users grant explicit, revocable permissions.
+- Wallet identity is bound to the authenticated user.
+- Trade preparation, authorization, signing and broadcast remain distinct steps.
+- Any delegated execution must satisfy server-enforced asset, route, spend, slippage and expiry limits.
+
+These principles describe Oren's authorization model. They are not a promise of a released SDK interface.

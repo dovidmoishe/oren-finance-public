@@ -1,0 +1,96 @@
+.landing-faq-cta-faq-intro h2 {
+  @apply text-[#3c372f] text-[clamp(32px,3.3vw,40px)] font-medium leading-[1.1] tracking-[-.045em];
+}
+
+.landing-faq-cta-questions {
+  @apply [border-top:1px_solid_#e6e2da] min-w-0;
+}
+
+.landing-faq-cta-item {
+  @apply [border-bottom:1px_solid_#e6e2da];
+}
+
+.landing-faq-cta-question {
+  @apply flex items-center justify-between gap-[24px] w-full [padding:23px_0] text-left text-[15px] leading-[1.5] font-normal tracking-[-.015em] text-[#51493e] cursor-pointer;
+}
+
+.landing-faq-cta-question:hover {
+  @apply text-[#171613];
+}
+
+.landing-faq-cta-question:focus-visible {
+  @apply [outline:2px_solid_#ab96c0] outline-offset-[5px] rounded-[3px];
+}
+
+.landing-faq-cta-chevron {
+  @apply text-[#9a8b79] [flex:0_0_auto];
+}
+
+.landing-faq-cta-invitation {
+  @apply relative isolate overflow-hidden rounded-[26px] [background:#f4f1e8] grid grid-cols-[1fr_1fr] items-center min-h-[360px];
+}
+
+.landing-faq-cta-landscape {
+  @apply absolute inset-0 z-[-1];
+  background: linear-gradient(to right, #f7f5ef 0%, rgb(247 245 239 / .97) 26%, rgb(247 245 239 / .75) 45%, rgb(247 245 239 / .05) 76%), url('/oren-editorial-landscape-hero.webp') center 42% / cover no-repeat;
+}
+
+.landing-faq-cta-closing-copy {
+  @apply relative [padding:48px_0_48px_56px] max-w-[440px];
+}
+
+.landing-faq-cta-closing-copy h2 {
+  @apply text-[clamp(36px,4vw,49px)] leading-[1.04] font-medium text-[#37342e] tracking-[-.05em];
+}
+
+.landing-faq-cta-market-link {
+  @apply inline-flex items-center min-h-[44px] gap-[7px] text-[#7c7164] text-[12px];
+}
+
+.landing-faq-cta-market-link:hover {
+  @apply text-[#302b25];
+}
+
+.landing-faq-cta-market-link:focus-visible {
+  @apply [outline:2px_solid_#ab96c0] outline-offset-[5px] rounded-[2px];
+}
+
+@media (max-width: 1023px) {
+  .landing-faq-cta-closing-copy {
+    @apply [padding:38px_0_38px_36px];
+  }
+  .landing-faq-cta-invitation {
+    @apply grid-cols-[1.2fr_1fr];
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-faq-cta-faq-intro {
+    @apply mb-[30px];
+  }
+  .landing-faq-cta-faq-intro h2 {
+    @apply text-[33px];
+  }
+  .landing-faq-cta-faq-intro h2 br {
+    @apply hidden;
+  }
+  .landing-faq-cta-question {
+    @apply [padding:21px_0] gap-[16px] text-[14px];
+  }
+  .landing-faq-cta-invitation {
+    @apply grid-cols-[1fr] rounded-[21px];
+  }
+  .landing-faq-cta-closing-copy {
+    @apply [padding:32px_27px_0] max-w-none;
+  }
+  .landing-faq-cta-closing-copy h2 {
+    @apply text-[38px];
+  }
+  .landing-faq-cta-market-link {
+    @apply text-[11px];
+  }
+  .landing-faq-cta-landscape {
+    background-image: linear-gradient(to bottom, #f7f5ef 0%, rgb(247 245 239 / .98) 30%, rgb(247 245 239 / .85) 49%, rgb(247 245 239 / .04) 78%), url('/oren-editorial-landscape-hero.webp');
+    @apply [background-position:center,_58%_top] [background-size:auto,_auto_155%];
+  }
+}

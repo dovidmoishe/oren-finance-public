@@ -1,0 +1,42 @@
+---
+title: Troubleshooting
+description: Resolve common connection, permission and trade-review issues.
+---
+
+## The server URL does not open in my browser
+
+`https://api.oren.finance/mcp` is a Streamable HTTP protocol endpoint. Opening it as a normal web page can return a method error. Add the URL in your MCP client's configuration and start its OAuth sign-in flow.
+
+## Sign-in fails or returns unauthorized
+
+Reconnect through your client's authentication flow. Your connection may have expired or been revoked. Connections currently have a seven-day lifetime. Sign in to the intended Oren account and review the selected wallet.
+
+If you see a missing local-app acknowledgement, reload the consent page and restart connection setup with an updated client. New connections require fresh consent.
+
+## My callback is rejected
+
+Oren accepts supported Claude, Cursor and Codex callback destinations. Arbitrary callback URLs and custom clients are not currently supported. Check that your client is current and uses its standard OAuth flow.
+
+## Stock tools appear, but trade tools do not
+
+The tool list depends on approved scopes and server features. Read permission does not include trade preparation or execution. Reconnecting does not automatically grant a wallet delegation.
+
+## My portfolio is empty
+
+Check the wallet approved during connection and whether it holds supported assets. The portfolio tool is bound to that wallet. An agent cannot override it by passing another address.
+
+## A trade needs browser approval
+
+Open the Oren approval link returned by preparation. Review and sign there. Browser approval is an expected authorization path; execute consent alone does not activate delegated trading.
+
+## A quote or intent has expired
+
+Ask for a fresh preparation and review the new terms. Intents from `prepare_trade` expire after five minutes; compatibility requests from `prepare_buy` expire after ten minutes. The quoted route may need refreshing sooner.
+
+## Execution is pending or unavailable
+
+Use `trade_status` before preparing or submitting a replacement. A timeout is not proof that a transaction failed. Retain the original intent ID and execution idempotency key, and investigate any returned chain signature.
+
+## I want to disconnect
+
+Revoke access in [Agent connections](https://oren.finance/settings/mcp). Remove any unwanted delegated grant there too. Removing a local server entry alone is not a server-side revocation.

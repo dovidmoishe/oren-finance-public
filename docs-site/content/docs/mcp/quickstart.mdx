@@ -1,0 +1,38 @@
+---
+title: Quickstart
+description: Connect Oren and ask your first portfolio question.
+---
+
+## 1. Choose your client
+
+Use a client that supports remote Streamable HTTP and browser-based OAuth. Follow the setup for [Claude](/docs/mcp/claude), [Cursor](/docs/mcp/cursor) or [Codex](/docs/mcp/codex).
+
+## 2. Add the server
+
+Name the connection **Oren** and use this URL:
+
+```text
+https://api.oren.finance/mcp
+```
+
+## 3. Sign in and review access
+
+Your client opens Oren's browser connection flow. Sign in with your Oren account, then review the requested permissions, wallet and callback destination. Local applications also require an acknowledgement for the selected local callback.
+
+For your first connection, use read access where your client allows scope selection. Approve only the access you intend to grant.
+
+## 4. Try a read request
+
+```text title="Try asking your agent"
+Show my Oren portfolio, then find Nvidia and show its stock details.
+```
+
+The agent can call `get_portfolio`, `search_stocks`, `get_stock` and `get_stock_research`. It should use the asset ID returned by search rather than inventing one from a ticker.
+
+An empty portfolio can mean the selected wallet has no supported holdings. Check the approved wallet before assuming a connection problem.
+
+## 5. Manage the connection
+
+Open [Agent connections](https://oren.finance/settings/mcp) in Oren to inspect or revoke access. Connections currently expire after seven days; reconnect when prompted.
+
+For trading behavior, continue to [Trade approvals](/docs/mcp/trades). For connection issues, see [Troubleshooting](/docs/mcp/troubleshooting).

@@ -1,0 +1,36 @@
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+
+.t-stagger-line {
+  @apply block [opacity:0] [transform:translateY(var(--stagger-distance))] [filter:blur(var(--stagger-blur))] [transition:opacity_var(--stagger-dur)_var(--stagger-ease),_transform_var(--stagger-dur)_var(--stagger-ease),_filter_var(--stagger-dur)_var(--stagger-ease)] [will-change:transform,_opacity,_filter];
+}
+
+.t-stagger-line--2 {
+  @apply [transition-delay:var(--stagger-stagger)];
+}
+
+.t-stagger.is-shown .t-stagger-line {
+  @apply [opacity:1] [transform:translateY(0)] [filter:blur(0)];
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur — so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+
+.t-stagger.is-hiding .t-stagger-line {
+  @apply [opacity:0] [transform:translateY(0)] [filter:blur(0)] [transition:opacity_200ms_ease,_transform_0s_linear,_filter_0s_linear] [transition-delay:0s];
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line { transition: none !important;
+  }
+}

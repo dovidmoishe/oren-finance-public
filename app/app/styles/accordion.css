@@ -1,0 +1,40 @@
+/* The inner grid item clips the content as the outer row expands. */
+@utility accordion-panel {
+  @apply grid grid-rows-[0fr] [transition:grid-template-rows_250ms_var(--panel-ease)];
+
+  .accordion[data-open="true"] & {
+    @apply grid-rows-[1fr];
+  }
+
+  @variant motion-reduce {
+    @apply [transition:none];
+  }
+}
+
+@utility accordion-content {
+  @apply overflow-hidden opacity-0 [filter:blur(2px)] [transition:opacity_250ms_var(--panel-ease),filter_250ms_var(--panel-ease)];
+
+  .accordion[data-open="true"] & {
+    @apply opacity-100 [filter:blur(0)];
+  }
+
+  @variant motion-reduce {
+    @apply [transition:none];
+  }
+}
+
+@utility accordion-chevron {
+  @apply inline-flex origin-center [transform:scaleY(1)] [transition:transform_250ms_var(--panel-ease)];
+
+  & path {
+    @apply [vector-effect:non-scaling-stroke];
+  }
+
+  .accordion[data-open="true"] & {
+    @apply [transform:scaleY(-1)];
+  }
+
+  @variant motion-reduce {
+    @apply [transition:none];
+  }
+}

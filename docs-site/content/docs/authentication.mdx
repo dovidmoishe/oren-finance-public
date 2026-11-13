@@ -1,0 +1,36 @@
+---
+title: Authentication & permissions
+description: Understand what your agent can access and how to revoke it.
+---
+
+## Browser sign-in
+
+The MCP server uses OAuth with a browser consent flow backed by your Oren sign-in. Oren issues MCP access tokens for the approved connection. Your Privy session token is not a substitute for an MCP access token.
+
+You do not need to share a seed phrase, private key or manually copied access token with your agent.
+
+## Permission scopes
+
+### `oren.read`
+
+Allows portfolio and stock read tools. Portfolio access is bound to the wallet selected during connection; the agent cannot choose an arbitrary wallet for `get_portfolio`.
+
+### `oren.trade.prepare`
+
+Allows preparing a buy or sell intent, opening its browser review and checking its status. Preparing a trade does not authorize a signature or broadcast.
+
+### `oren.trade.execute`
+
+Allows requesting execution under a separate, active, bounded wallet delegation when the server has that capability enabled. OAuth consent alone is insufficient. Delegated execution remains restricted during rollout.
+
+## Review each new connection
+
+Every new authorization requires fresh Oren consent, including reconnecting a previously approved client. Token refresh can continue within the existing connection.
+
+The consent screen shows the actual selected callback destination. A client name is not proof of which application initiated the request. Local callbacks require an additional acknowledgement.
+
+## Expiry and revocation
+
+Connections currently expire after seven days. Access tokens are also checked against the connection's current state and wallet binding.
+
+Visit [Agent connections](https://oren.finance/settings/mcp) to revoke a connection. Manage any delegated trading grant there as well; connection consent and wallet delegation are separate permissions. Revocation prevents future authorized use but cannot undo an already broadcast onchain transaction.

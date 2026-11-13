@@ -1,0 +1,35 @@
+{
+  "slug": "more-routes-one-simple-swap",
+  "date": "2026-10-31",
+  "status": "published",
+  "title": "More routes. One simple swap.",
+  "summary": "Titan joins Oren’s swap router, adding another way to find routes for tokenized stocks on Solana. Watch the idea in ten seconds.",
+  "sections": [
+    {
+      "heading": "Added",
+      "items": [
+        {
+          "title": "Titan route comparison",
+          "description": "When enabled, Oren compares Titan and Jupiter quotes after estimated network fees to choose the better available route."
+        },
+        {
+          "title": "Your minimum stays protected",
+          "description": "A refreshed route or fallback must meet the minimum you reviewed. If it cannot, Oren asks for a new quote."
+        },
+        {
+          "title": "A fallback when needed",
+          "description": "If Titan is unavailable, Oren can use Jupiter while keeping the same minimum-received protection."
+        }
+      ]
+    }
+  ],
+  "video": {
+    "src": "/videos/oren-powered-by-titan-lift.mp4",
+    "poster": "/videos/oren-powered-by-titan-lift-poster.jpg",
+    "label": "Oren powered by Titan, a ten-second route comparison film",
+    "caption": "Titan routing is available where enabled. Sample quote shown; prices can change.",
+    "width": 1920,
+    "height": 1080
+  },
+  "sequence": 2
+}

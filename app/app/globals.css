@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "./styles/conversation-motion.css";
+@import "./styles/trade-grant.css";
+@import "./styles/mcp-connect.css";
+@import "./styles/agents.css";
+@import "./styles/accordion.css";
+@import "./styles/product.css";
+@import "./styles/motion.css";
+@import "./styles/oren-logo.css";
+@import "./styles/token.css";
+@import "./styles/changelog.css";
+@import "./styles/stock-mix.css";
+@import "./styles/walkthrough.css";
+@import "./styles/foundations.css";
+@import "./styles/reveal.css";
+@import "./styles/landing.css";
+@import "./styles/landing-faq-cta.css";
+@import "./styles/roadmap.css";
+
+/* Keep the existing inclusive breakpoints, from widest to narrowest. */
+@custom-variant at-most-1100 (@media (max-width: 1100px));
+@custom-variant at-most-1050 (@media (max-width: 1050px));
+@custom-variant at-most-1023 (@media (max-width: 1023px));
+@custom-variant at-most-900 (@media (max-width: 900px));
+@custom-variant at-most-850 (@media (max-width: 850px));
+@custom-variant at-most-767 (@media (max-width: 767px));
+@custom-variant at-most-700 (@media (max-width: 700px));
+@custom-variant at-most-640 (@media (max-width: 640px));
+@custom-variant at-most-600 (@media (max-width: 600px));
+@custom-variant at-most-480 (@media (max-width: 480px));
+@custom-variant at-most-360 (@media (max-width: 360px));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --panel: #ffffff;
+  --panel-subtle: #f7f7f5;
+  --muted: #62625d;
+  --muted-2: #a9adaf;
+  --border: #e7e7e2;
+  --border-strong: #d1d1ca;
+  --accent: #111111;
+  --accent-pink: #f6c2f1;
+  --accent-pink-soft: #fff1fc;
+  --accent-yellow: #ffe500;
+  --accent-lavender: #e0d7fb;
+  --positive: #1f9d5a;
+  --negative: #ef4444;
+  --warning: #a16207;
+  --focus: #86b7ff;
+  --panel-open-dur: 400ms;
+  --panel-close-dur: 350ms;
+  --panel-translate-y: 100px;
+  --panel-blur: 2px;
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shimmer-dur: 2000ms;
+  --shimmer-base: #7c7c7c;
+  --shimmer-highlight: #0d0d0d;
+  --shimmer-band: 400%;
+  --shimmer-ease: linear;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-panel-subtle: var(--panel-subtle);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-muted-2: var(--muted-2);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-pink-soft: var(--accent-pink-soft);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-lavender: var(--accent-lavender);
+  --font-oren-sans: system-ui, sans-serif;
+  --font-sans: var(--font-oren-sans);
+  --font-display: var(--font-oren-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+button,
+input,
+textarea,
+select {
+  @apply [font:inherit];
+}

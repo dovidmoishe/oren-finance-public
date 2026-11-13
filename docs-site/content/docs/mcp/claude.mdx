@@ -1,0 +1,22 @@
+---
+title: Claude
+description: Add Oren as a custom remote connector in Claude.
+---
+
+## Add the connector
+
+1. Open Claude's connector settings and choose to add a custom connector. Availability depends on your Claude account and workspace settings.
+2. Enter **Oren** as the name and `https://api.oren.finance/mcp` as the remote server URL.
+3. Start sign-in. If asked how to register, choose automatic registration.
+4. Complete the Oren browser sign-in and review the requested permissions and selected callback.
+5. Return to Claude and enable Oren for your conversation if needed.
+
+## Try it
+
+```text
+Use Oren to show my portfolio and look up Apple.
+```
+
+If trade preparation is available and you approve that permission, the agent can prepare a trade. Follow the returned Oren review link to inspect and sign it. A successful connector login alone does not enable delegated signing.
+
+See [Tool reference](/docs/mcp/tools) and [Trade approvals](/docs/mcp/trades) for the exact behavior.

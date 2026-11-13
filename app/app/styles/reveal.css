@@ -1,0 +1,84 @@
+.reveal-group {
+  --reveal-duration: 1100ms;
+  --reveal-distance: 12px;
+  --reveal-blur: 7px;
+  --reveal-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+.reveal-focus[data-reveal="pending"] {
+  @apply opacity-[.12] [filter:blur(var(--reveal-blur))] [transform:translateY(6px)];
+}
+
+.reveal-focus[data-reveal="shown"] {
+  @apply animate-[reveal-focus-in_var(--reveal-duration)_var(--reveal-ease)_var(--reveal-delay,_0ms)_backwards];
+}
+
+.reveal-rise[data-reveal="pending"], .reveal-surface[data-reveal="pending"] {
+  @apply opacity-[0] [transform:translateY(var(--reveal-distance))];
+}
+
+.reveal-rise[data-reveal="shown"] {
+  @apply animate-[reveal-rise-in_850ms_var(--reveal-ease)_var(--reveal-delay,_0ms)_backwards];
+}
+
+.reveal-surface[data-reveal="shown"] {
+  @apply animate-[reveal-rise-in_1000ms_var(--reveal-ease)_100ms_backwards];
+}
+
+.reveal-reply {
+  @apply block animate-[reveal-reply-in_350ms_var(--reveal-ease)_backwards];
+}
+
+.reveal-result {
+  @apply animate-[reveal-rise-in_400ms_var(--reveal-ease)_backwards];
+}
+
+@keyframes reveal-focus-in {
+  from {
+    opacity: .12;
+    filter: blur(var(--reveal-blur));
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-reply-in {
+  from {
+    opacity: .2;
+    filter: blur(2px);
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .reveal-group {
+    --reveal-distance: 8px;
+    --reveal-blur: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-focus[data-reveal], .reveal-rise[data-reveal], .reveal-surface[data-reveal], .reveal-reply, .reveal-result {
+    @apply [animation:none] opacity-[1] [filter:none] [transform:none];
+  }
+}

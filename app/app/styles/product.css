@@ -1,0 +1,122 @@
+/* Product density: preserve body text and root rem sizing; tighten larger UI tokens. */
+
+.oren-app {
+  @apply text-[.875rem] leading-[1.5];
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.25rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 1.75rem;
+  --text-5xl: 2.125rem;
+  --text-6xl: 2.5rem;
+  --app-nav-height: 3.75rem;
+  --app-card-padding: 1rem;
+  --app-card-header-y: .75rem;
+  --app-card-radius: 20px;
+  --app-control-height: 2.25rem;
+  --app-control-small: 2rem;
+  --app-control-large: 3rem;
+  --app-control-icon: 2.25rem;
+  --app-tab-height: 2rem;
+  --app-table-px: 1rem;
+  --app-table-py: .625rem;
+  --app-chart-height: 340px;
+  --app-chart-min-height: 280px;
+  --app-chart-gap: 1.25rem;
+}
+
+@layer components {
+  .oren-card {
+    @apply [border-radius:var(--app-card-radius,_24px)];
+  }
+  .oren-card-header {
+    @apply [padding:var(--app-card-header-y,_1.25rem)_var(--app-card-padding,_1.5rem)];
+  }
+  .oren-card-content {
+    @apply [padding:var(--app-card-padding,_1.5rem)];
+  }
+  .oren-btn-sm {
+    @apply [min-height:var(--app-control-small,_2rem)];
+  }
+  .oren-btn-md {
+    @apply [min-height:var(--app-control-height,_2.5rem)];
+  }
+  .oren-btn-lg {
+    @apply [min-height:var(--app-control-large,_3.5rem)];
+  }
+  .oren-btn-icon {
+    @apply [height:var(--app-control-icon,_2.5rem)] [width:var(--app-control-icon,_2.5rem)] p-0;
+  }
+  .oren-tab {
+    @apply [height:var(--app-tab-height,_2rem)];
+  }
+  .oren-table-cell {
+    @apply [padding:var(--app-table-py,_1rem)_var(--app-table-px,_1.25rem)];
+  }
+}
+/* Native top-layer surfaces retain Escape, outside-click and focus behavior. */
+
+.oren-account-menu {
+  @apply [inset:calc(var(--app-nav-height,_4.5rem)_+_.5rem)_1rem_auto_auto] m-0 p-0 [border:none] bg-transparent;
+}
+
+/* Animate the inner surface to preserve iOS Safari popover hit targets. */
+.oren-account-menu-surface {
+  @apply origin-top-right [transition:opacity_150ms_ease,transform_150ms_var(--panel-ease)] opacity-0 [transform:scale(.97)];
+}
+
+.oren-account-menu:popover-open .oren-account-menu-surface {
+  @apply opacity-[1] [transform:scale(1)] duration-[250ms];
+}
+
+.oren-deposit-modal {
+  @apply opacity-[0] [transform:scale(.96)] [transition:opacity_150ms_ease,_transform_150ms_cubic-bezier(0.22,_1,_0.36,_1),_display_150ms_allow-discrete,_overlay_150ms_allow-discrete];
+}
+
+.oren-deposit-modal[open] {
+  @apply opacity-[1] [transform:scale(1)] duration-[250ms];
+}
+
+.oren-deposit-modal::backdrop {
+  @apply [background:rgb(0_0_0_/_.24)] [backdrop-filter:blur(8px)];
+}
+
+@starting-style {
+  .oren-account-menu:popover-open .oren-account-menu-surface {
+    @apply opacity-[0] [transform:scale(.97)];
+  }
+  .oren-deposit-modal[open] {
+    @apply opacity-[0] [transform:scale(.96)];
+  }
+}
+
+@media (max-width: 639px) {
+  .oren-app {
+    --app-chart-height: 260px;
+    --app-chart-min-height: 240px;
+  }
+  .oren-app :where(input[type="search"], input[type="email"], input[autocomplete="one-time-code"], textarea) {
+    @apply text-[1rem];
+  }
+}
+
+@media (pointer: coarse) {
+  .oren-app {
+    --app-control-height: 2.75rem;
+    --app-control-small: 2.5rem;
+    --app-control-icon: 2.75rem;
+    --app-tab-height: 2.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .oren-account-menu {
+    @apply [right:max(1.5rem,_calc((100vw_-_1540px)_/_2_+_1.5rem))];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oren-account-menu-surface, .oren-deposit-modal {
+    @apply [transition:none] [transform:none];
+  }
+}

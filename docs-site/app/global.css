@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/instrument-sans';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+@import '../components/brand/oren-logo.css';
+
+@theme {
+  --font-sans: 'Instrument Sans Variable', 'Segoe UI', sans-serif;
+}
+
+:root {
+  --color-fd-background: #fff;
+  --color-fd-foreground: #252824;
+  --color-fd-primary: #42634b;
+  --color-fd-primary-foreground: #fff;
+  --color-fd-border: #eceee9;
+  --color-fd-muted: #f7f8f6;
+  --color-fd-muted-foreground: #747970;
+  --color-fd-accent: #f0f3ed;
+  --color-fd-accent-foreground: #354c39;
+}
+
+.dark {
+  --color-fd-background: #171917;
+  --color-fd-foreground: #e6e8e3;
+  --color-fd-primary: #abc2a5;
+  --color-fd-primary-foreground: #17241b;
+  --color-fd-border: #2d302b;
+  --color-fd-muted: #20231f;
+  --color-fd-muted-foreground: #a1a69b;
+  --color-fd-accent: #272e25;
+  --color-fd-accent-foreground: #d5e3cf;
+}
+
+[data-search-full] {
+  @apply bg-[var(--color-fd-background)] [border-color:#d4d9d1] [box-shadow:0_1px_2px_rgb(25_35_22_/_5%)];
+}
+
+[data-search-full]:hover {
+  @apply bg-[var(--color-fd-accent)];
+}
+
+.dark [data-search-full] {
+  @apply bg-[#292d27] [border-color:#4a5145];
+}
+
+.dark [data-search-full]:hover {
+  @apply bg-[#333a2f];
+}
+
+a:focus-visible, button:focus-visible {
+  @apply [outline:2px_solid_var(--color-fd-primary)] outline-offset-[4px];
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0 !important;
+  --removed-body-scroll-bar-size: 0 !important;
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "oren-mcp-is-live",
+  "date": "2026-11-07",
+  "sequence": 1,
+  "status": "published",
+  "title": "Oren MCP is live",
+  "summary": "Your next trade starts with a conversation. Connect Claude, Cursor or Codex to your Oren portfolio and trade tokenized stocks with USDC on Solana.",
+  "sections": [
+    {
+      "heading": "Added",
+      "items": [
+        {
+          "title": "Your portfolio, in the conversation",
+          "description": "Bring your holdings and available USDC into the chat without switching apps."
+        },
+        {
+          "title": "From stock lookup to a trade",
+          "description": "Look up supported tokenized stocks, prepare buys or sells, and follow the trade status from your AI client."
+        },
+        {
+          "title": "You set the limits",
+          "description": "Approve revocable per-trade and daily limits in Oren for in-chat execution, or review and sign each trade in your browser."
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "label": "Connect your agent",
+      "href": "/agents"
+    }
+  ],
+  "video": {
+    "src": "/videos/oren-mcp-launch-v8-1080p.mp4",
+    "poster": "/videos/oren-mcp-launch-v8-poster.jpg",
+    "label": "Oren MCP: research and buy inside Claude, a 30-second launch film",
+    "caption": "Illustrative balances and trades. Claude supplies web research; in-chat execution requires limits approved in Oren.",
+    "width": 1920,
+    "height": 1080
+  }
+}

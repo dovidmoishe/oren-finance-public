@@ -1,0 +1,31 @@
+---
+title: Codex
+description: Connect the Codex CLI to Oren with read access.
+---
+
+## Add Oren
+
+Run these commands in a terminal with the Codex CLI installed:
+
+```sh
+codex mcp add oren --url https://api.oren.finance/mcp
+codex mcp login oren --scopes oren.read
+```
+
+The login command opens your browser. Sign in to Oren, review the selected wallet, read permission and callback destination, and complete the local-application acknowledgement when shown.
+
+This example requests only `oren.read`. It does not request trade preparation or execution access.
+
+## Try it
+
+```text
+Use Oren to show my portfolio and find Nvidia.
+```
+
+The read connection exposes `get_portfolio`, `search_stocks`, `get_stock` and `get_stock_research`. Restart or refresh your Codex session if the tool list has not updated after login.
+
+## Remove access
+
+Revoke the connection from [Agent connections](https://oren.finance/settings/mcp). Removing local server configuration alone should not be treated as revoking server-side access.
+
+For CLI options, see the [official Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference).

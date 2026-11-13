@@ -1,0 +1,185 @@
+.trade-grant-card {
+  @apply [margin-top:40px] [padding:28px] [border:1px_solid_var(--border)] [border-radius:24px] [background:var(--panel)] [color:var(--foreground)] [font-size:14px] [line-height:1.6];
+}
+
+.trade-grant-heading {
+  @apply flex [align-items:flex-start] [gap:14px];
+}
+
+.trade-grant-heading-icon {
+  @apply grid place-items-center shrink-0 [width:42px] [height:42px] [border:1px_solid_var(--border)] [border-radius:13px] [background:var(--panel-subtle)];
+}
+
+.trade-grant-heading h2 {
+  @apply [font-size:21px] font-medium [letter-spacing:-.6px] [line-height:1.3];
+}
+
+.trade-grant-heading p {
+  @apply [margin-top:6px] [color:var(--muted)] [font-size:13px] [max-width:430px];
+}
+
+.trade-grant-fields {
+  @apply [border:0] [margin:0] [padding:0] [min-width:0];
+}
+
+.trade-grant-fields:disabled {
+  @apply [opacity:.65];
+}
+
+.trade-grant-permission {
+  @apply flex items-center justify-between [gap:16px];
+}
+
+.trade-grant-label, .trade-grant-field > span:first-child {
+  @apply font-medium [font-size:13px];
+}
+
+.trade-grant-permission p, .trade-grant-caption {
+  @apply [color:var(--muted)] [font-size:12px];
+}
+
+.trade-grant-permission p {
+  @apply [margin-top:3px];
+}
+
+.trade-grant-caption {
+  @apply [margin-top:12px];
+}
+
+.trade-grant-badge {
+  @apply shrink-0 [padding:5px_12px] [border:1px_solid_var(--border)] [border-radius:999px] [font-size:12px] font-medium [background:var(--panel-subtle)];
+}
+
+.trade-grant-grid {
+  @apply grid [grid-template-columns:repeat(2,_minmax(0,_1fr))] [gap:22px_20px] [margin:26px_0];
+}
+
+.trade-grant-field {
+  @apply flex [flex-direction:column] [gap:8px] [min-width:0];
+}
+
+.trade-grant-input-wrap {
+  @apply flex items-center [gap:8px] [min-height:48px] [padding:0_14px] [border:1px_solid_var(--border-strong)] [border-radius:11px] [background:var(--background)];
+}
+
+.trade-grant-input-wrap > span {
+  @apply [color:var(--muted)] [font-size:12px];
+}
+
+.trade-grant-input-wrap > span:first-child {
+  @apply [font-size:16px];
+}
+
+.trade-grant-input-wrap input {
+  @apply [width:100%] [min-width:0] [padding:10px_0] [font-size:17px] font-medium [background:transparent] [outline:none];
+}
+
+.trade-grant-input-wrap:focus-within {
+  @apply [outline:2px_solid_var(--foreground)] [outline-offset:2px];
+}
+
+.trade-grant-field select, .trade-grant-permission select {
+  @apply [min-height:48px] [padding:10px_12px] [border:1px_solid_var(--border-strong)] [border-radius:11px] [background:var(--background)] [color:var(--foreground)] [font-size:14px];
+}
+
+.trade-grant-field small {
+  @apply [color:var(--muted)] [font-size:11px] [line-height:1.5];
+}
+
+.trade-grant-summary {
+  @apply flex [align-items:flex-start] [gap:12px] [border:1px_solid_var(--border)] [border-radius:12px] [padding:16px] [background:var(--panel-subtle)];
+}
+
+.trade-grant-summary > svg {
+  @apply shrink-0 [margin-top:2px];
+}
+
+.trade-grant-summary strong {
+  @apply [font-size:13px] font-medium;
+}
+
+.trade-grant-summary p {
+  @apply [color:var(--muted)] [font-size:12px] [margin-top:3px];
+}
+
+.trade-grant-details {
+  @apply [margin-top:18px] [color:var(--muted)] [font-size:12px];
+}
+
+.trade-grant-details summary {
+  @apply cursor-pointer [width:fit-content] [color:var(--foreground)];
+}
+
+.trade-grant-details p {
+  @apply [margin-top:10px] [overflow-wrap:anywhere];
+}
+
+.trade-grant-checkbox {
+  @apply flex [align-items:flex-start] [gap:10px] [margin-top:22px] [font-size:12px] cursor-pointer;
+}
+
+.trade-grant-checkbox input {
+  @apply [width:16px] [height:16px] [margin-top:2px] shrink-0 [accent-color:var(--foreground)];
+}
+
+.trade-grant-footer {
+  @apply flex items-center justify-between [gap:16px] [border-top:1px_solid_var(--border)] [padding-top:20px] [margin-top:22px];
+}
+
+.trade-grant-footer > span {
+  @apply [color:var(--muted)] [font-size:11px] [max-width:170px];
+}
+
+.trade-grant-primary {
+  @apply inline-flex items-center justify-center [gap:10px] [min-height:44px] [padding:11px_20px] [border-radius:999px] [background:#171717] [color:white] [font-size:13px] font-medium cursor-pointer;
+}
+
+.trade-grant-primary:disabled {
+  @apply [opacity:.4] [cursor:not-allowed];
+}
+
+.trade-grant-primary:hover:not(:disabled) {
+  @apply [background:#333];
+}
+
+.trade-grant-card :is(a, button, select, summary, input[type="checkbox"]):focus-visible {
+  @apply [outline:2px_solid_var(--foreground)] [outline-offset:4px];
+}
+
+.trade-grant-warning {
+  @apply flex [align-items:flex-start] [gap:10px] [padding:14px] [margin-top:20px] [border:1px_solid_var(--border)] [border-radius:12px] [color:var(--muted)] [font-size:12px];
+}
+
+.trade-grant-warning svg {
+  @apply shrink-0 [margin-top:2px];
+}
+
+.trade-grant-error {
+  @apply [color:#b42318] [margin-top:16px] [font-size:13px];
+}
+@media (max-width: 480px) {
+  .trade-grant-card {
+    @apply [padding:22px_18px] [border-radius:20px];
+  }
+  .trade-grant-heading {
+    @apply [gap:10px];
+  }
+  .trade-grant-heading h2 {
+    @apply [font-size:19px];
+  }
+  .trade-grant-heading-icon {
+    @apply [width:36px] [height:36px] [border-radius:11px];
+  }
+  .trade-grant-grid {
+    @apply [grid-template-columns:1fr] [gap:20px];
+  }
+  .trade-grant-footer {
+    @apply [flex-direction:column-reverse] [align-items:stretch] [gap:12px];
+  }
+  .trade-grant-footer > span {
+    @apply [max-width:none] text-center;
+  }
+  .trade-grant-field select {
+    @apply [font-size:16px];
+  }
+}

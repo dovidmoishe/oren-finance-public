@@ -1,0 +1,305 @@
+/* Copied from app/app/globals.css: Oren logo and reduced-motion rules. */
+
+.oren-logo {
+  @apply inline-flex shrink-0 [contain:layout_style];
+}
+
+.oren-logo svg {
+  @apply block w-full h-full overflow-visible;
+}
+
+.oren-logo__float {
+  @apply [transform-box:fill-box] [transform-origin:center] [will-change:transform];
+}
+
+.oren-logo__reaction {
+  @apply [transform-box:fill-box] [transform-origin:center] [transition:transform_250ms_cubic-bezier(0.22,_1,_0.36,_1)];
+}
+
+.oren-logo__gesture {
+  @apply [transform-box:fill-box] [transform-origin:center] [transition:filter_400ms_cubic-bezier(0.22,_1,_0.36,_1)] [will-change:transform,_filter];
+}
+
+.oren-logo[data-interactive="true"] .oren-logo__gesture {
+  @apply [transform:translate(var(--oren-look-x,_0px),_var(--oren-look-y,_0px))_rotate(var(--oren-tilt,_0deg))] [transition:filter_400ms_cubic-bezier(0.22,_1,_0.36,_1)];
+}
+
+.oren-logo[data-interactive="true"][data-engaged="true"] .oren-logo__gesture {
+  @apply [filter:drop-shadow(0_0_14px_rgba(129,_117,_255,_0.32))];
+}
+
+.oren-logo[data-interactive="true"][data-attention="true"] .oren-logo__reaction {
+  @apply [transform:scale(1.018)];
+}
+
+.oren-logo[data-interactive="true"][data-pressed="true"] .oren-logo__reaction {
+  @apply [transform:scale(1.04)];
+}
+
+.oren-logo[data-interactive="true"][data-state="idle"] .oren-logo__eye-pills {
+  @apply [transform:translate(var(--oren-eye-x,_0px),_var(--oren-eye-y,_0px))] [transition:none];
+}
+
+.oren-logo__shell,
+.oren-logo__bloom {
+  @apply [transform-box:fill-box] [transform-origin:center];
+}
+
+.oren-logo__stop-blue,
+.oren-logo__stop-violet {
+  @apply [will-change:stop-color];
+}
+
+.oren-logo__eye,
+.oren-logo__eye-glow,
+.oren-logo__eye-pills,
+.oren-logo__eye-happy {
+  @apply [transform-box:fill-box] [transform-origin:center] [transition:opacity_180ms_ease,_transform_220ms_ease];
+}
+
+.oren-logo__eye-happy {
+  @apply opacity-[0];
+}
+
+.oren-logo__shell-highlight {
+  @apply mix-blend-screen pointer-events-none [transform-box:fill-box] [transform-origin:center];
+}
+
+.oren-logo[data-interactive="true"][data-state="idle"] .oren-logo__shell-highlight {
+  @apply opacity-[calc(var(--oren-energy,0)*0.62)] [transform:translate(var(--oren-light-x,_0px),_var(--oren-light-y,_0px))] [transition:opacity_250ms_ease-out];
+}
+
+.oren-logo[data-interactive="true"][data-pressed="true"] .oren-logo__eye-pills {
+  @apply opacity-[0];
+}
+
+.oren-logo[data-interactive="true"][data-pressed="true"] .oren-logo__eye-happy {
+  @apply opacity-[1] [transform:scale(1.03)];
+}
+/* idle */
+
+.oren-logo[data-state="idle"] .oren-logo__float {
+  @apply animate-[oren-float_7s_ease-in-out_infinite];
+}
+
+.oren-logo[data-state="idle"] .oren-logo__stop-blue {
+  @apply animate-[oren-stop-blue_9s_ease-in-out_infinite];
+}
+
+.oren-logo[data-state="idle"] .oren-logo__stop-violet {
+  @apply animate-[oren-stop-violet_9s_ease-in-out_infinite];
+}
+
+.oren-logo[data-state="idle"] .oren-logo__bloom {
+  @apply animate-[oren-bloom-breathe_7s_ease-in-out_infinite];
+}
+
+.oren-logo[data-blink="true"] .oren-logo__eye,
+.oren-logo[data-blink="true"] .oren-logo__eye-glow {
+  @apply [transform:scaleY(0.08)] [transition:transform_70ms_ease-in];
+}
+
+.oren-logo__eye,
+.oren-logo__eye-glow {
+  @apply [transition:transform_110ms_ease-out];
+}
+/* thinking */
+
+.oren-logo[data-state="thinking"] .oren-logo__eye-pills {
+  @apply animate-[oren-eye-scan_2.8s_ease-in-out_infinite];
+}
+
+.oren-logo[data-state="thinking"] .oren-logo__eye {
+  @apply [transform:scaleX(0.88)_scaleY(0.82)];
+}
+
+.oren-logo[data-state="thinking"] .oren-logo__shell-highlight {
+  @apply opacity-[0.55] animate-[oren-shell-glint_3.6s_linear_infinite];
+}
+/* processing */
+
+.oren-logo[data-state="processing"] .oren-logo__shell-highlight {
+  @apply opacity-[0.85] animate-[oren-shell-glint_1.4s_linear_infinite];
+}
+
+.oren-logo[data-state="processing"] .oren-logo__bloom {
+  @apply animate-[oren-bloom-pulse_1.4s_ease-in-out_infinite];
+}
+
+.oren-logo[data-state="processing"] .oren-logo__stop-blue {
+  @apply [stop-color:#22d3ee];
+}
+
+.oren-logo[data-state="processing"] .oren-logo__stop-violet {
+  @apply [stop-color:#c084fc];
+}
+/* success */
+
+.oren-logo[data-state="success"] .oren-logo__eye-pills {
+  @apply opacity-[0];
+}
+
+.oren-logo[data-state="success"] .oren-logo__eye-happy {
+  @apply opacity-[1] animate-[oren-success-pop_720ms_ease-out_forwards];
+}
+
+.oren-logo[data-state="success"] .oren-logo__bloom {
+  @apply animate-[oren-success-glow_720ms_ease-out_forwards];
+}
+/* alert */
+
+.oren-logo[data-state="alert"] .oren-logo__eye-pills {
+  @apply [transform:scale(1.12)];
+}
+
+.oren-logo[data-state="alert"] .oren-logo__bloom {
+  @apply animate-[oren-alert-pulse_680ms_ease-out_1];
+}
+
+.oren-logo[data-state="alert"] .oren-logo__stop-blue,
+.oren-logo[data-state="alert"] .oren-logo__stop-violet {
+  @apply animate-[oren-alert-color_680ms_ease-out_1];
+}
+
+@keyframes oren-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1.8%) scale(1.012);
+  }
+}
+
+@keyframes oren-bloom-breathe {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.92;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes oren-stop-blue {
+  0%, 100% {
+    stop-color: #38bdf8;
+  }
+  50% {
+    stop-color: #7dd3fc;
+  }
+}
+
+@keyframes oren-stop-violet {
+  0%, 100% {
+    stop-color: #a855f7;
+  }
+  50% {
+    stop-color: #c084fc;
+  }
+}
+
+@keyframes oren-eye-scan {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3.5%);
+  }
+  75% {
+    transform: translateX(3.5%);
+  }
+}
+
+@keyframes oren-shell-glint {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes oren-bloom-pulse {
+  0%, 100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes oren-success-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes oren-success-glow {
+  0% {
+    opacity: 0.75;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.82;
+  }
+}
+
+@keyframes oren-alert-pulse {
+  0% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 0.78;
+    transform: scale(1);
+  }
+}
+
+@keyframes oren-alert-color {
+  0%, 100% {
+    stop-color: inherit;
+  }
+  45% {
+    stop-color: #f0abfc;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oren-logo[data-reduced-motion="true"] .oren-logo__float,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__reaction,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__gesture,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__bloom,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__stop-blue,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__stop-violet,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__eye-pills,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__shell-highlight,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__eye-happy,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__stop-blue,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__stop-violet {
+    animation: none !important;
+  }
+  .oren-logo[data-reduced-motion="true"] .oren-logo__eye,
+  .oren-logo[data-reduced-motion="true"] .oren-logo__eye-glow {
+    transition: none !important;
+  }
+  .oren-logo[data-reduced-motion="true"][data-blink="true"] .oren-logo__eye,
+  .oren-logo[data-reduced-motion="true"][data-blink="true"] .oren-logo__eye-glow {
+    transform: none !important;
+  }
+}

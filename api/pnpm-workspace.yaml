@@ -1,0 +1,21 @@
+# minimumReleaseAge needs each version's publish time, which only the
+# full registry document carries. @solana/assertions' document is ~12 MB
+# and the GET stalls, so a long fetchTimeout turns one retry into a
+# multi-minute hang. Fail that stall in 60s, twice. An unchanged
+# lockfile skips the fetch when the metadata cache is restored.
+# The supply-chain policy and the frozen lockfile are unchanged.
+fetchTimeout: 60000
+fetchRetries: 2
+
+allowBuilds:
+  '@parcel/watcher': true
+  bigint-buffer: true
+  bufferutil: true
+  esbuild: true
+  unrs-resolver: true
+  utf-8-validate: true
+
+minimumReleaseAgeExclude:
+  - esbuild@0.24.3
+  - bigint-buffer@1.1.6
+  - stream-json@3.4.1 || 3.5.1
